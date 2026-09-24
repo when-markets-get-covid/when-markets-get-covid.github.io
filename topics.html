@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Topic Model — When the Markets Get COVID</title>
+<meta name="description" content="Country-level LDA topic models of COVID-related tweets posted by English-language newspapers.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" style="text-decoration:none;">
+      <span class="brand-text"><div class="brand-title">When the Markets Get COVID</div></span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="tweets.html">Tweets-based</a>
+      <a href="announcements.html">Announcements</a>
+      <a href="topics.html" class="active">Topic Model</a>
+      <a href="data.html">Paper &amp; Data</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:28px;">
+  <div class="container">
+    <div class="eyebrow">Extra</div>
+    <h1 style="font-size:2.1rem;">Topic model visualization</h1>
+    <p class="section-intro wide-justify" style="max-width:860px;">We fit a Latent Dirichlet Allocation (LDA) topic model to COVID-related tweets from English-language newspapers, one country at a time. Tweets are preprocessed (special characters removed, words stemmed), and both unigrams and bigrams are included. Case counts come up again and again among the top terms. That is one reason the paper sorts countries by their share of COVID-19 cases.</p>
+  </div>
+</section>
+
+<section class="page-section" style="padding-top:28px;">
+  <div class="container">
+    <div class="eyebrow">Choose a country</div>
+    <div class="lda-controls" role="tablist">
+      <button type="button" data-country="usa">USA</button>
+      <button type="button" data-country="uk">UK</button>
+      <button type="button" data-country="canada">Canada</button>
+      <button type="button" data-country="australia">Australia</button>
+      <button type="button" data-country="new-zealand">New Zealand</button>
+      <button type="button" data-country="india">India</button>
+      <button type="button" data-country="china">China</button>
+      <button type="button" data-country="hong-kong">Hong Kong</button>
+      <button type="button" data-country="japan">Japan</button>
+      <button type="button" data-country="korea">Korea</button>
+    </div>
+
+    <div class="lda-frame">
+      <iframe id="lda-iframe" title="LDA topic model visualization" loading="lazy"></iframe>
+    </div>
+
+    <p class="footnote" style="max-width:none;">How to read it: each circle on the left is a topic, sized by how common it is. Click a topic to see its most relevant terms on the right. The slider sets λ, which trades off a term's probability within the topic (λ = 1) against its lift (λ = 0). The paper uses λ = 0.5. Built with LDAvis (Sievert and Shirley, 2014); five topics per country.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-note">&copy; When the Markets Get COVID &middot; Arteaga&#8209;Garavito, Croce, Farroni &amp; Wolfskeil</div>
+    <div>
+      <a href="https://doi.org/10.1016/j.jfineco.2024.103850" target="_blank" rel="noopener">JFE</a>
+      <a href="assets/docs/Internet_Appendix.pdf" target="_blank" rel="noopener">Internet Appendix</a>
+      <a href="data.html#bibtex">BibTeX</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

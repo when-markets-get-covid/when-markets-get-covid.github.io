@@ -3,201 +3,248 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Twitter News — When the Markets Get COVID</title>
-<meta name="description" content="Over 800,000 COVID-19 tweets from 84 major newspapers in 20 countries: information diffusion, a Twitter-based contagion factor, and the market price of viral contagion risk.">
-<script>try{var t=localStorage.getItem("wmgc-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<title>Tweets-based Study — When the Markets Get COVID</title>
+<meta name="description" content="COVID-19 news posted on Twitter by major newspapers: information diffusion, the tone of the news, and the market price of contagion risk.">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"></script>
 </head>
 <body>
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="index.html">
-      <img class="brand-mark" src="assets/img/favicon.svg" alt="">
-      <span>
-        <div class="brand-title">When the Markets Get COVID</div>
-        <div class="brand-sub">Contagion &middot; Viruses &middot; Information Diffusion</div>
-      </span>
+    <a class="brand" href="index.html" style="text-decoration:none;">
+      <span class="brand-text"><div class="brand-title">When the Markets Get COVID</div></span>
     </a>
     <nav class="site-nav">
       <a href="index.html">Home</a>
+      <a href="tweets.html" class="active">Tweets-based</a>
       <a href="announcements.html">Announcements</a>
-      <a href="tweets.html" class="active">Twitter News</a>
+      <a href="topics.html">Topic Model</a>
       <a href="data.html">Paper &amp; Data</a>
-      <button class="theme-toggle" type="button" aria-label="Toggle theme">&#9790;</button>
     </nav>
   </div>
 </header>
 
-<section class="hero hero-page">
+<section class="hero" style="padding-bottom:28px;">
   <div class="container">
-    <div class="label">Part II &middot; Contagion news</div>
-    <h1>Following the pandemic in real time, one newspaper tweet at a time</h1>
-    <p class="lede">We tracked every COVID-19 tweet posted by major newspapers in 20 countries and assigned each newspaper its headquarters time zone. Tweets measure how news spreads, and retweets and likes measure attention. Together they give us a contagion-news factor that can be measured by the hour.</p>
+    <div class="eyebrow">Study 1</div>
+    <h1 style="font-size:2.1rem;">Tweets-based study</h1>
   </div>
 </section>
 
-<section class="section">
+<div class="lead-band">
   <div class="container">
-    <div class="label">Information diffusion</div>
-    <h2 class="section-title">News spikes when a country's epidemic starts</h2>
-    <p class="section-intro">Countries enter their epidemic phase at very different dates. We mark each one's start as the day it reaches 100 confirmed cases. In almost every country, the number of tweets and the attention they get (retweets, shown by marker size) jump right after that date.</p>
+    <p>We track the news about the COVID-19 pandemic that major newspapers post on Twitter. This new dataset lets us study both how information is produced and how it spreads. Because we also track retweets and likes, we get a <em>high-frequency</em> measure of attention.</p>
+  </div>
+</div>
 
-    <div class="fig-stack">
-      <figure class="figure">
-        <div class="plate"><img src="assets/img/figures/Tweets_countries_wDots.png" alt="Small multiples of daily COVID tweets for 20 countries, each spiking after the country passes 100 confirmed cases" loading="lazy"></div>
-        <figcaption><span class="tag">Fig. 5</span><strong>Information diffusion and attention across countries.</strong> Daily tweets by major newspapers. Marker size is retweets scaled by each country's maximum. The vertical line marks the day the country passes 100 confirmed cases. Sample: 01/01/2020&ndash;02/22/2022.</figcaption>
-      </figure>
+<section class="story">
+  <div class="container">
+    <div class="chart-block">
+      <div class="chart-head">
+        <div class="eyebrow">Interactive</div>
+        <h3>Average COVID-related tweets per major newspaper, by country</h3>
+      </div>
+      <div class="plot" data-src="assets/plots/tweets_by_country.json"></div>
+      <div class="figure-caption"><p>Total COVID-related tweets (bars, left axis) and retweets (diamonds, right axis), each divided by the number of major newspapers in the sample for that country. Oct 2019 &ndash; Feb 2022.</p></div>
+    </div>
 
-      <figure class="figure">
-        <div class="plate"><img src="assets/img/figures/ww_tweets_format_Max.png" alt="Global daily COVID tweets (left) and tweets about death risk, medical supplies, quarantine and vaccines (right)" loading="lazy"></div>
-        <figcaption><span class="tag">Fig. 6a</span><strong>Global information diffusion.</strong> Left: total daily tweets across countries. Right: tweets about death risk, medical supplies, quarantine, and vaccines, found with a multilingual bag-of-words approach. Vaccines take over in the fall of 2020.</figcaption>
-      </figure>
+    <div class="takeaway">
+      <div class="eyebrow">Takeaway 1</div>
+      <p>The timing of information diffusion differs a lot across countries. In several of them, diffusion becomes much more intense once the <em>local epidemic period</em> starts (100+ confirmed cases).</p>
+    </div>
 
-      <div class="two-col" style="align-items:center;">
-        <div>
-          <div class="label">Intraday</div>
-          <h3 style="font-size:1.35rem; margin-top:10px;">Much of the news breaks while markets are open</h3>
-          <p style="color:var(--muted);">In local time, tweet volume in every half-hour slot goes up sharply in the first wave compared with the pre-epidemic period, and much of it lands during trading hours. Following newspapers on social media therefore tracks what investors know, in real time.</p>
+    <div class="chart-block">
+      <div class="chart-head">
+        <div class="eyebrow">Interactive</div>
+        <h3>COVID-related tweets per major newspaper over time (monthly)</h3>
+      </div>
+      <div class="plot" data-src="assets/plots/tweets_monthly.json" data-legend="right"></div>
+      <div class="plot-hint">Five countries are shown to start. Click a country code in the legend to add or remove it; double-click to show it alone.</div>
+      <div class="figure-caption"><p>Monthly count of COVID-related tweets divided by the number of major newspapers in each country.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="container">
+    <div class="eyebrow">The tone of the news</div>
+    <h2>The tone of the tweets follows the contagion</h2>
+    <div class="takeaway">
+      <div class="eyebrow">Takeaway 2</div>
+      <p>The tone of the tweets<sup>*</sup> moves with the observed contagion. It turned very negative by the end of January as conditions in China deteriorated. It improved in early February, when there was still no sign of mass contagion in Europe, and it fell again when the epidemic started in Italy.</p>
+    </div>
+    <p class="footnote"><sup>*</sup>We measure tone with Polyglot, a multilingual algorithm that reads each tweet and classifies its words as positive (+1), negative (&minus;1), or neutral (0). Following Twedt and Rees (2012), each tweet's tone is</p>
+    <div class="math-block">$$\text{Tone} \;=\; \frac{\#\,\text{positive words} \;-\; \#\,\text{negative words}}{\#\,\text{positive words} \;+\; \#\,\text{negative words}}$$</div>
+    <p class="muted">We compute this at the country level, hourly and daily, using only original tweets (not retweets). We then aggregate across countries to get a global measure.</p>
+
+    <div class="chart-block">
+      <div class="chart-head">
+        <div class="eyebrow">Interactive</div>
+        <h3>Tone of COVID-related tweets by major newspapers</h3>
+      </div>
+      <div class="plot" data-src="assets/plots/tone.json"></div>
+      <div class="figure-caption"><p>Daily world tone and 5-day moving averages for the world, advanced, and emerging economies.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="container">
+    <div class="eyebrow">From tone to news</div>
+    <h2>Extracting news from the tone</h2>
+    <p>For the asset pricing analysis we focus on <em>innovations</em> to the tone of our tweets. A simple way to get them is to take the difference between the tone on day \(t\) and its 5-day backward-looking moving average at \(t-1\):</p>
+    <div class="math-block">$$news_t \;=\; \text{Tone}_t \;-\; \frac{1}{5}\sum_{j=1}^{5}\text{Tone}_{t-j}$$</div>
+    <p class="muted">The resulting series is close to serially uncorrelated.</p>
+
+    <div class="chart-block">
+      <div class="chart-head">
+        <div class="eyebrow">Interactive</div>
+        <h3>Tone news (tone minus its moving average)</h3>
+      </div>
+      <div class="plot" data-src="assets/plots/tone_news.json"></div>
+      <div class="plot-hint">The world series is shown first. Click Advanced or Emerging in the legend to add them.</div>
+      <div class="figure-caption"><p>Daily innovations in tweet tone.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="container">
+    <div class="eyebrow">Asset pricing</div>
+    <h2>The market price of contagion risk</h2>
+    <p>Every day we sort countries into three portfolios by their share of COVID-19 cases the previous day, separately for advanced (AE) and emerging (EE) economies. The H (L) portfolio holds the countries with the most (fewest) cases. We also consider a strategy that is long H and short L (HML). Each portfolio's exposure to global contagion news moves with its share of cases, \(X_{f,t}\):</p>
+    <div class="math-block">$$\begin{aligned}
+      r^{ex}_{f,t+1} &= \bar r^{ex}_{f,t} + \beta_{f,t}\cdot news^{glob}_{t+1}, \qquad f\in\{H,M,L\}\\[2pt]
+      \beta_{f,t} &= \beta_0 + \beta_{f,1}\,X_{f,t}\\[2pt]
+      \frac{\partial\, \bar r^{ex}_{f,t}}{\partial X_{f,t}} &= \lambda\,\beta_{f,1}
+    \end{aligned}$$</div>
+    <p>Here \(\lambda\) is the market price of risk (MPR) of global contagion news. We estimate the model by GMM. All portfolios have a significant exposure to contagion news, and the portfolio with the highest share of cases tends to be the most exposed. That sign is what we expect: bad news about the global tone of tweets is an adverse shock to equity returns.</p>
+
+    <div class="chart-block">
+      <div class="chart-head">
+        <div class="eyebrow">Interactive</div>
+        <h3>Estimated expected excess return, H portfolio</h3>
+      </div>
+      <div class="plot tall" data-src="assets/plots/rp_H.json" data-legend="none"></div>
+      <div class="figure-caption"><p>Advanced economies in terracotta, emerging economies in blue. Bonds on the left, equities on the right.</p></div>
+    </div>
+
+    <div class="takeaway">
+      <div class="eyebrow">Result</div>
+      <p>Given our specifications and estimation uncertainty, <strong>0.3% is a reasonable lower bound on the daily market price of risk of contagion news</strong>. Two things make this number plausible:</p>
+      <ol>
+        <li>This is not the MPR of a financial factor, and the estimated betas are very small.</li>
+        <li>Contagion risk comes in waves with a short half-life, so assets' exposure to it is small and fades quickly.</li>
+      </ol>
+      <p>Sovereign bonds of advanced economies are not sensitive to contagion risk. Equities, however, saw a larger rise in their required risk premium in High-COVID countries. In emerging economies, both bonds and equities became much riskier. Bonds were still less exposed than equities, so emerging-market bonds are also relatively safe against contagion risk.</p>
+    </div>
+  </div>
+</section>
+
+<section class="story" style="padding-bottom:56px;">
+  <div class="container">
+    <div class="eyebrow">High-minus-Low COVID</div>
+    <h2>Heterogeneous exposure: the HML strategy</h2>
+    <p>The HML strategy isolates how differently countries are exposed to contagion risk.</p>
+
+    <div class="chart-block">
+      <div class="chart-head">
+        <div class="eyebrow">Interactive</div>
+        <h3>Estimated expected excess return, HML portfolio</h3>
+      </div>
+      <div class="plot tall" data-src="assets/plots/rp_HML.json" data-legend="none"></div>
+      <div class="figure-caption"><p>Long High-COVID, short Low-COVID countries. Bonds on the left, equities on the right.</p></div>
+    </div>
+
+    <div class="takeaway">
+      <div class="eyebrow">What we observe</div>
+      <ol>
+        <li>Bonds became less risky in High-COVID countries than in Low-COVID countries. In other words, bonds are relatively safe assets in High-COVID countries, so an HML-COVID strategy on bonds earns an <strong>insurance premium</strong>.</li>
+        <li>In advanced economies this premium is very small, consistent with the muted bond response around medical announcements. In emerging economies the insurance premium is large, in both local currency and USD.</li>
+      </ol>
+    </div>
+
+    <details class="more">
+      <summary>Figures from the published paper</summary>
+      <div class="figure-block">
+        <div class="pad"><img src="assets/img/figures/Tweets_countries_wDots.png" alt="Daily COVID tweets by country, with the date each country passed 100 confirmed cases" loading="lazy"></div>
+        <div class="figure-caption"><span class="fig-tag">Figure 5</span><p>Information diffusion and attention across countries. Daily tweets by major newspapers. Marker size reflects retweets; the vertical line marks 100 confirmed cases.</p></div>
+      </div>
+      <div class="figure-block">
+        <div class="pad"><img src="assets/img/figures/ww_tweets_format_Max.png" alt="Global daily COVID tweets and topic breakdown" loading="lazy"></div>
+        <div class="figure-caption"><span class="fig-tag">Figure 6a</span><p>Global information diffusion, with tweets about death risk, medical supplies, quarantine, and vaccines.</p></div>
+      </div>
+      <div class="figure-block">
+        <div class="pad"><img src="assets/img/figures/intraday_tweets_01182021.png" alt="Intraday tweet counts per 30 minutes, first wave versus pre-epidemic" loading="lazy"></div>
+        <div class="figure-caption"><span class="fig-tag">Figure 7</span><p>Intraday information diffusion: first wave (dotted) vs. pre-epidemic (dashed), local time.</p></div>
+      </div>
+      <div class="figure-block">
+        <div class="pad"><img src="assets/img/figures/TweetsTone.png" alt="Twitter-based COVID-19 factor" loading="lazy"></div>
+        <div class="figure-caption"><span class="fig-tag">Figure 8</span><p>Twitter-based COVID-19 factor: global tone and its innovations.</p></div>
+      </div>
+      <div class="figure-block">
+        <div class="fig-pair">
+          <div><div class="panel-label">Advanced economies</div><img src="assets/img/figures/exp_rp_est_hml_adv_smooth.png" alt="Sequentially estimated HML-COVID risk premium, advanced economies" loading="lazy"></div>
+          <div><div class="panel-label">Emerging economies</div><img src="assets/img/figures/exp_rp_est_hml_noadv_smooth.png" alt="Sequentially estimated HML-COVID risk premium, emerging economies" loading="lazy"></div>
         </div>
-        <figure class="figure">
-          <div class="plate"><img src="assets/img/figures/intraday_tweets_01182021.png" alt="Intraday tweet counts per 30 minutes by country, pre-epidemic versus first wave" loading="lazy"></div>
-          <figcaption><span class="tag">Fig. 7</span><strong>Intraday information diffusion.</strong> Tweets every 30 minutes: first wave (dotted) vs. pre-epidemic (dashed).</figcaption>
-        </figure>
+        <div class="figure-caption"><span class="fig-tag">Figure 9</span><p>Sequentially estimated risk premia on the HML-COVID strategy (first sample ends June 2020; two weeks added at a time). Shaded areas are 90% confidence intervals.</p></div>
       </div>
-    </div>
+    </details>
 
-    <div class="table-wrap">
-      <table class="data">
-        <thead>
-          <tr><th>Country</th><th>Providers</th><th>Tweets</th><th>Retweets</th><th>Likes</th><th>Mortality</th><th>Quarantine</th><th>Med. supply</th><th>Vaccines</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Argentina</td><td>4</td><td>77,338</td><td>1,205,269</td><td>3,154,158</td><td>13%</td><td>10%</td><td>14%</td><td>63%</td></tr>
-          <tr><td>Australia</td><td>4</td><td>17,641</td><td>144,685</td><td>348,074</td><td>19%</td><td>39%</td><td>12%</td><td>29%</td></tr>
-          <tr><td>Brazil</td><td>4</td><td>32,552</td><td>1,331,641</td><td>8,705,983</td><td>45%</td><td>8%</td><td>15%</td><td>32%</td></tr>
-          <tr><td>Canada</td><td>5</td><td>48,545</td><td>442,675</td><td>861,102</td><td>33%</td><td>10%</td><td>17%</td><td>40%</td></tr>
-          <tr><td>Chile</td><td>4</td><td>33,954</td><td>408,095</td><td>630,825</td><td>56%</td><td>6%</td><td>10%</td><td>28%</td></tr>
-          <tr><td>China</td><td>3</td><td>32,791</td><td>947,706</td><td>2,580,177</td><td>39%</td><td>14%</td><td>19%</td><td>28%</td></tr>
-          <tr><td>Colombia</td><td>4</td><td>32,877</td><td>474,795</td><td>1,450,808</td><td>17%</td><td>12%</td><td>25%</td><td>45%</td></tr>
-          <tr><td>France</td><td>4</td><td>47,059</td><td>1,424,717</td><td>2,384,879</td><td>25%</td><td>26%</td><td>27%</td><td>22%</td></tr>
-          <tr><td>Germany</td><td>4</td><td>12,213</td><td>147,977</td><td>331,434</td><td>20%</td><td>24%</td><td>20%</td><td>35%</td></tr>
-          <tr><td>Hong Kong</td><td>3</td><td>21,204</td><td>419,964</td><td>606,520</td><td>17%</td><td>32%</td><td>21%</td><td>31%</td></tr>
-          <tr><td>India</td><td>4</td><td>103,907</td><td>937,468</td><td>5,611,874</td><td>32%</td><td>23%</td><td>16%</td><td>29%</td></tr>
-          <tr><td>Italy</td><td>3</td><td>33,696</td><td>265,658</td><td>715,064</td><td>10%</td><td>32%</td><td>29%</td><td>28%</td></tr>
-          <tr><td>Japan</td><td>4</td><td>18,984</td><td>156,845</td><td>277,461</td><td>18%</td><td>13%</td><td>30%</td><td>39%</td></tr>
-          <tr><td>Korea</td><td>4</td><td>13,459</td><td>82,445</td><td>143,649</td><td>44%</td><td>10%</td><td>26%</td><td>20%</td></tr>
-          <tr><td>Mexico</td><td>4</td><td>79,244</td><td>1,625,687</td><td>4,262,382</td><td>14%</td><td>11%</td><td>25%</td><td>50%</td></tr>
-          <tr><td>New Zealand</td><td>3</td><td>9,520</td><td>45,474</td><td>169,920</td><td>10%</td><td>40%</td><td>15%</td><td>35%</td></tr>
-          <tr><td>Spain</td><td>4</td><td>38,865</td><td>2,668,188</td><td>4,792,047</td><td>30%</td><td>20%</td><td>14%</td><td>36%</td></tr>
-          <tr><td>Switzerland</td><td>4</td><td>8,390</td><td>37,173</td><td>47,191</td><td>22%</td><td>20%</td><td>25%</td><td>33%</td></tr>
-          <tr><td>UK</td><td>4</td><td>25,356</td><td>1,145,404</td><td>2,286,491</td><td>27%</td><td>30%</td><td>15%</td><td>29%</td></tr>
-          <tr><td>USA</td><td>11</td><td>116,365</td><td>7,264,225</td><td>17,259,747</td><td>29%</td><td>7%</td><td>23%</td><td>41%</td></tr>
-        </tbody>
-        <tfoot>
-          <tr><td>Total</td><td>84</td><td>803,960</td><td>21,176,091</td><td>56,619,786</td><td>26%</td><td>19%</td><td>20%</td><td>35%</td></tr>
-        </tfoot>
-      </table>
-    </div>
-    <p class="explorer-note">Newspapers dataset (Table 3). The topic columns give the share of tweets mentioning each topic. Sample: 01/01/2020&ndash;02/22/2022.</p>
-  </div>
-</section>
-
-<section class="section alt" id="tone">
-  <div class="container two-col">
-    <div>
-      <div class="label">The contagion factor</div>
-      <h2 class="section-title">Measuring the tone of the news</h2>
-      <p>The tweets come in many languages, so we score them with <a href="https://pypi.org/project/polyglot/" target="_blank" rel="noopener">Polyglot</a>, which has polarity lexicons for 136 languages. Each tweet's tone follows Twedt &amp; Rees (2012):</p>
-      <div class="eq">tone = (<span class="v">#positive</span> &minus; <span class="v">#negative</span>) / (<span class="v">#positive</span> + <span class="v">#negative</span>)</div>
-      <p style="margin-top:16px;">We average tone within each day and across countries. <strong>News</strong> is the gap between today's tone and its 5-day backward-looking average, which is close to serially uncorrelated. The global tone matches the epidemic's path: it fell sharply as China's outbreak worsened in late January, recovered in early February, fell again when Italy's epidemic began, and then improved slowly as contagion curves flattened.</p>
-      <p style="color:var(--muted); font-size:.93rem;">We also track the quote-retweets of top-1% high-attention tweets. Their tone is positively and significantly correlated with the tone of the original tweets.</p>
-    </div>
-    <figure class="figure">
-      <div class="plate"><img src="assets/img/figures/TweetsTone.png" alt="Daily global tweet tone with its 5-day moving average (left) and the implied tone news series (right)" loading="lazy"></div>
-      <figcaption><span class="tag">Fig. 8</span><strong>Twitter-based COVID-19 factor.</strong> Left: daily global tone and its 5-day moving average. Right: news, meaning the innovations in tone.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="section" id="pricing">
-  <div class="container">
-    <div class="label">Asset pricing</div>
-    <h2 class="section-title">The market price of viral contagion news</h2>
-    <p class="section-intro">An LDA topic model on English-language tweets shows that case counts are one of the main things the news talks about. So every day we sort countries into High, Medium, and Low portfolios by their share of COVID-19 cases, separately for advanced and emerging economies. Each portfolio's exposure to global news varies over time with that share.</p>
-
-    <div class="eq" style="margin-top:22px;">
-      r<sup>ex</sup><sub>f,t+1</sub> = r&#772;<sup>ex</sup><sub>f,t</sub> + <span class="v">&beta;<sub>f,t</sub></span> &middot; news<sup>glob</sup><sub>t+1</sub>,
-      &nbsp;&nbsp;&nbsp; <span class="v">&beta;<sub>f,t</sub></span> = &beta;<sub>0</sub> + &beta;<sub>f,1</sub> X<sub>f,t</sub>,
-      &nbsp;&nbsp;&nbsp; &part;r&#772;<sup>ex</sup><sub>f,t</sub> / &part;X<sub>f,t</sub> = <span class="v">&lambda;</span> &beta;<sub>f,1</sub>
-    </div>
-    <p class="explorer-note">X<sub>f,t</sub> = portfolio f's share of contagion cases; &lambda; = market price of risk of global news. Global news is measured either as surprises in the growth of global cases or as surprises in global tweet tone. Estimated by GMM.</p>
-
-    <div class="callouts">
-      <div class="callout"><div class="num">&ge; 0.3%</div><p>A reasonable lower bound on the <strong>daily</strong> market price of risk of contagion news, after accounting for estimation uncertainty.</p></div>
-      <div class="callout"><div class="num">Case share predicts returns</div><p>A higher share of contagion cases forecasts higher expected returns, so it raises the cost of capital.</p></div>
-      <div class="callout"><div class="num">Survives the controls</div><p>Holds after controlling for the global market, FF3/FF5, jumps, and realized volatility, with USD or local-currency returns, and in hourly data with country fixed effects.</p></div>
-    </div>
-
-    <div class="takeaway" style="margin-top:28px;"><strong>Why so large, yet plausible?</strong> This isn't the price of a traded financial factor, and the estimated betas are small. Contagion risk also comes in short-lived waves, so assets' exposure to it is modest and fades quickly. A conditional CAPM using market returns instead of COVID news finds no significant positive price of risk.</div>
-  </div>
-</section>
-
-<section class="section alt" id="premia">
-  <div class="container">
-    <div class="label">In real time</div>
-    <h2 class="section-title">Risk premia on a High-minus-Low COVID strategy</h2>
-    <p class="section-intro">We re-estimate the model on samples of increasing length, starting in June 2020 and adding two weeks at a time. This shows how early an investor using our method could have measured contagion exposure. The market price of risk is significant in almost every window.</p>
-
-    <div class="fig-stack">
-      <div class="fig-pair">
-        <figure class="figure">
-          <div class="plate"><img src="assets/img/figures/exp_rp_est_hml_adv_smooth.png" alt="Sequentially estimated HML-COVID risk premium in advanced economies: near zero for bonds, positive for equities" loading="lazy"></div>
-          <figcaption><span class="tag">Fig. 9a</span><strong>Expected HML-COVID, advanced economies.</strong> Bonds: about zero. Equities: positive and well identified.</figcaption>
-        </figure>
-        <figure class="figure">
-          <div class="plate"><img src="assets/img/figures/exp_rp_est_hml_noadv_smooth.png" alt="Sequentially estimated HML-COVID risk premium in emerging economies: negative for bonds, positive for equities" loading="lazy"></div>
-          <figcaption><span class="tag">Fig. 9b</span><strong>Expected HML-COVID, emerging economies.</strong> Bonds carry an insurance premium. Equities carry a positive premium.</figcaption>
-        </figure>
+    <details class="more">
+      <summary>The newspapers dataset (Table 3)</summary>
+      <div class="table-scroll">
+        <table class="data-table num">
+          <thead><tr><th>Country</th><th>Providers</th><th>Tweets</th><th>Retweets</th><th>Likes</th><th>Mortality</th><th>Quarantine</th><th>Med. supply</th><th>Vaccines</th></tr></thead>
+          <tbody>
+            <tr><td>Argentina</td><td>4</td><td>77,338</td><td>1,205,269</td><td>3,154,158</td><td>13%</td><td>10%</td><td>14%</td><td>63%</td></tr>
+            <tr><td>Australia</td><td>4</td><td>17,641</td><td>144,685</td><td>348,074</td><td>19%</td><td>39%</td><td>12%</td><td>29%</td></tr>
+            <tr><td>Brazil</td><td>4</td><td>32,552</td><td>1,331,641</td><td>8,705,983</td><td>45%</td><td>8%</td><td>15%</td><td>32%</td></tr>
+            <tr><td>Canada</td><td>5</td><td>48,545</td><td>442,675</td><td>861,102</td><td>33%</td><td>10%</td><td>17%</td><td>40%</td></tr>
+            <tr><td>Chile</td><td>4</td><td>33,954</td><td>408,095</td><td>630,825</td><td>56%</td><td>6%</td><td>10%</td><td>28%</td></tr>
+            <tr><td>China</td><td>3</td><td>32,791</td><td>947,706</td><td>2,580,177</td><td>39%</td><td>14%</td><td>19%</td><td>28%</td></tr>
+            <tr><td>Colombia</td><td>4</td><td>32,877</td><td>474,795</td><td>1,450,808</td><td>17%</td><td>12%</td><td>25%</td><td>45%</td></tr>
+            <tr><td>France</td><td>4</td><td>47,059</td><td>1,424,717</td><td>2,384,879</td><td>25%</td><td>26%</td><td>27%</td><td>22%</td></tr>
+            <tr><td>Germany</td><td>4</td><td>12,213</td><td>147,977</td><td>331,434</td><td>20%</td><td>24%</td><td>20%</td><td>35%</td></tr>
+            <tr><td>Hong Kong</td><td>3</td><td>21,204</td><td>419,964</td><td>606,520</td><td>17%</td><td>32%</td><td>21%</td><td>31%</td></tr>
+            <tr><td>India</td><td>4</td><td>103,907</td><td>937,468</td><td>5,611,874</td><td>32%</td><td>23%</td><td>16%</td><td>29%</td></tr>
+            <tr><td>Italy</td><td>3</td><td>33,696</td><td>265,658</td><td>715,064</td><td>10%</td><td>32%</td><td>29%</td><td>28%</td></tr>
+            <tr><td>Japan</td><td>4</td><td>18,984</td><td>156,845</td><td>277,461</td><td>18%</td><td>13%</td><td>30%</td><td>39%</td></tr>
+            <tr><td>Korea</td><td>4</td><td>13,459</td><td>82,445</td><td>143,649</td><td>44%</td><td>10%</td><td>26%</td><td>20%</td></tr>
+            <tr><td>Mexico</td><td>4</td><td>79,244</td><td>1,625,687</td><td>4,262,382</td><td>14%</td><td>11%</td><td>25%</td><td>50%</td></tr>
+            <tr><td>New Zealand</td><td>3</td><td>9,520</td><td>45,474</td><td>169,920</td><td>10%</td><td>40%</td><td>15%</td><td>35%</td></tr>
+            <tr><td>Spain</td><td>4</td><td>38,865</td><td>2,668,188</td><td>4,792,047</td><td>30%</td><td>20%</td><td>14%</td><td>36%</td></tr>
+            <tr><td>Switzerland</td><td>4</td><td>8,390</td><td>37,173</td><td>47,191</td><td>22%</td><td>20%</td><td>25%</td><td>33%</td></tr>
+            <tr><td>UK</td><td>4</td><td>25,356</td><td>1,145,404</td><td>2,286,491</td><td>27%</td><td>30%</td><td>15%</td><td>29%</td></tr>
+            <tr><td>USA</td><td>11</td><td>116,365</td><td>7,264,225</td><td>17,259,747</td><td>29%</td><td>7%</td><td>23%</td><td>41%</td></tr>
+          </tbody>
+          <tfoot><tr><td>Total</td><td>84</td><td>803,960</td><td>21,176,091</td><td>56,619,786</td><td>26%</td><td>19%</td><td>20%</td><td>35%</td></tr></tfoot>
+        </table>
       </div>
-      <figure class="figure fig-narrow">
-        <div class="plate"><img src="assets/img/figures/exp_mpr_est_smooth.png" alt="Sequentially estimated market price of risk of COVID case news, advanced and emerging economies, with 90% confidence bands" loading="lazy"></div>
-        <figcaption><span class="tag">Fig. 9c</span><strong>Estimated market price of risk (cases).</strong> Negative, as expected for case-growth news. &lsquo;fx&rsquo; = USD returns, &lsquo;raw&rsquo; = local currency. Shaded areas are 90% confidence intervals.</figcaption>
-      </figure>
-    </div>
-
-    <div class="callouts">
-      <div class="callout"><div class="num">+28% / +13%</div><p>Possible rise in daily equity risk premia at the April 2020 peak, advanced and emerging economies, relative to sample medians.</p></div>
-      <div class="callout"><div class="num">Flows agree</div><p>High-COVID countries see weekly equity <em>outflows</em>. In emerging economies, flows into government bonds rise, consistent with a flight to safety.</p></div>
-      <div class="callout"><div class="num">Energy &gt; Health</div><p>Across STOXX Europe 600 industries, Energy, Utilities, and Consumer Discretionary are the most exposed. Health, Materials, and IT are the safest.</p></div>
-    </div>
-
-    <div class="takeaway alert"><strong>Policy implication.</strong> Containment policies that keep relative contagion low could be very valuable, both for lives saved and for protecting global financial wealth.</div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container next-link">
-    <a href="announcements.html"><small>&larr; Previous</small><span>Medical announcements</span></a>
-    <a class="right" href="data.html"><small>Next &rarr;</small><span>Paper, data &amp; citation</span></a>
+      <p class="footnote">Topic columns give the share of tweets mentioning each topic. Sample: 01/01/2020&ndash;02/22/2022.</p>
+    </details>
   </div>
 </section>
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <div>&copy; 2024&ndash;2026 Arteaga&#8209;Garavito, Croce, Farroni &amp; Wolfskeil</div>
+    <div class="footer-note">&copy; When the Markets Get COVID &middot; Arteaga&#8209;Garavito, Croce, Farroni &amp; Wolfskeil</div>
     <div>
       <a href="https://doi.org/10.1016/j.jfineco.2024.103850" target="_blank" rel="noopener">JFE</a>
-      <a href="https://www.ssrn.com/abstract=3560347" target="_blank" rel="noopener">SSRN</a>
-      <a href="data.html#cite">BibTeX</a>
+      <a href="assets/docs/Internet_Appendix.pdf" target="_blank" rel="noopener">Internet Appendix</a>
+      <a href="data.html#bibtex">BibTeX</a>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script defer src="assets/js/main.js"></script>
 </body>
 </html>

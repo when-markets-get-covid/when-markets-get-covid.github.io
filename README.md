@@ -8,18 +8,24 @@ No build step. It's plain HTML/CSS/JS, served by GitHub Pages.
 
 ## Structure
 
-- `index.html` — Home: title, key numbers, abstract, three main findings, authors
-- `announcements.html` — Part I: model intuition, announcements dataset + interactive explorer, equity/bond results
-- `tweets.html` — Part II: Twitter news diffusion, tone factor, market price of risk, risk premia
-- `data.html` — JFE / SSRN / Internet Appendix, announcements CSV + codebook, replication package, BibTeX
-- `assets/css/style.css` — shared stylesheet (light + dark theme)
-- `assets/js/main.js` — theme toggle, BibTeX copy, hero curve + explorer chart
-- `assets/data/covid19_announcements.csv` — public announcements dataset (from Data_JFE/Announcements)
-- `assets/data/announcements_weekly.json` — weekly counts by country × category, built from the CSV
-- `assets/img/figures/` — figures from the JFE version (Writing_JFE/Figures, resized to 1600px)
-- `assets/img/authors/` — headshots (add `paolo.jpg`, `isabella.jpg` and swap the initials avatars in index.html)
-- `assets/docs/Internet_Appendix.pdf`
-- `tools/build_weekly.py` — regenerates the weekly JSON from the CSV
+Look and palette match international-climate-news.github.io (Fraunces + Inter, cream/terracotta).
+Content follows the original Google Site (Home · Tweets-based · Announcements · Authors · Extra/LDA).
+
+- `index.html` — Home: title, abstract, authors, links to the two studies
+- `tweets.html` — Tweets-based study: interactive charts + takeaways, pricing model, published figures
+- `announcements.html` — Announcements study: model, interactive equity/bond charts, dataset explorer, Table 1, published figures
+- `topics.html` — LDA topic models by country (pyLDAvis pages in `assets/lda/`)
+- `data.html` — JFE paper, published Internet Appendix, announcements CSV + codebook, replication package, BibTeX
+- `assets/css/style.css` — climate-site stylesheet + additions at the bottom
+- `assets/js/main.js` — Plotly chart rendering, announcements explorer, LDA viewer, BibTeX copy
+- `assets/plots/*.json` — Plotly figures from Writing/Webpage/Why_Markets_Get_COVID_webpage_main.ipynb (restyled; tone series trimmed to 02/22/2022)
+- `assets/lda/*.html` — Codes/Majo/output/topics5 (5-topic LDAvis), wrapped as standalone pages
+- `assets/data/` — public announcements CSV and the weekly JSON built from it
+- `assets/img/figures/` — figures from the JFE version (Writing_JFE/Figures)
+- `assets/img/authors/` — headshots (Paolo still shows initials: add `paolo.jpg` and swap it in index.html)
+- `assets/docs/Internet_Appendix.pdf` — published supplementary material (ScienceDirect mmc1)
+
+Math is rendered with KaTeX, charts with Plotly.js (both from cdn.jsdelivr.net).
 
 ## Rebuilding the weekly JSON (only if the CSV changes)
 
