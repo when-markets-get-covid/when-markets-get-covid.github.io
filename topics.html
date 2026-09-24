@@ -38,7 +38,10 @@
 
 <section class="page-section" style="padding-top:28px;">
   <div class="container">
-    <div class="eyebrow">Choose a country</div>
+    <div class="eyebrow">How to read it</div>
+    <p class="section-intro" style="margin-top:8px; color:var(--ink);">Each circle on the left is a topic, sized by how common it is. Click a topic to see its most relevant terms on the right. The slider sets λ, which trades off a term's probability within the topic (λ = 1) against its lift (λ = 0). The paper uses λ = 0.5. Built with LDAvis (Sievert and Shirley, 2014); five topics per country.</p>
+
+    <div class="eyebrow" style="margin-top:28px;">Choose a country</div>
     <div class="lda-controls" role="tablist">
       <button type="button" data-country="usa">USA</button>
       <button type="button" data-country="uk">UK</button>
@@ -56,7 +59,6 @@
       <iframe id="lda-iframe" title="LDA topic model visualization" loading="lazy"></iframe>
     </div>
 
-    <p class="footnote">How to read it: each circle on the left is a topic, sized by how common it is. Click a topic to see its most relevant terms on the right. The slider sets λ, which trades off a term's probability within the topic (λ = 1) against its lift (λ = 0). The paper uses λ = 0.5. Built with LDAvis (Sievert and Shirley, 2014); five topics per country.</p>
   </div>
 </section>
 
