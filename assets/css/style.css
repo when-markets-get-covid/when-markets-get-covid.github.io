@@ -2,18 +2,18 @@
    Base palette and components shared with international-climate-news.github.io; additions at the bottom. */
 
 :root {
-  --ink: #211d1a;
-  --accent: #c2542d;
-  --accent-dark: #9c4321;
-  --gray: #766e62;
-  --gray-light: #a89d8c;
-  --border: #e8e0d3;
-  --tint: #f5ede1;
-  --tint-border: #e9dbc4;
-  --bg: #faf8f4;
-  --card-bg: #fffefc;
+  --ink: #13233a;
+  --accent: #1f5fa8;
+  --accent-dark: #174a85;
+  --gray: #5b6778;
+  --gray-light: #93a0b2;
+  --border: #dde4ee;
+  --tint: #eaf1f9;
+  --tint-border: #cfdcee;
+  --bg: #f6f8fb;
+  --card-bg: #ffffff;
   --max-w: 1080px;
-  --slate: #3b6e8f;
+  --slate: #5aa7d8;
 }
 
 * { box-sizing: border-box; }
@@ -395,7 +395,7 @@ section.page-section:last-of-type { border-bottom: none; }
 .figure-caption {
   padding: 16px 22px 20px;
   border-top: 1px solid var(--border);
-  background: #fdfbf7;
+  background: #f9fbfd;
 }
 
 .figure-caption .fig-tag {
@@ -585,7 +585,7 @@ section.page-section:last-of-type { border-bottom: none; }
 /* Footer */
 footer.site-footer {
   background: var(--ink);
-  color: #e9ddc9;
+  color: #dbe6f3;
   padding: 34px 0;
   margin-top: 20px;
 }
@@ -602,7 +602,7 @@ footer.site-footer {
 }
 
 .footer-inner a {
-  color: #e9ddc9;
+  color: #dbe6f3;
   font-size: 0.85rem;
   margin-left: 18px;
 }
@@ -611,7 +611,7 @@ footer.site-footer {
 
 .footer-note {
   font-size: 0.8rem;
-  color: #b3a58e;
+  color: #9fb2c8;
 }
 
 /* Utility */
@@ -818,7 +818,7 @@ details.more[open] summary { margin-bottom: 6px; }
   position: absolute;
   pointer-events: none;
   background: var(--ink);
-  color: #f5ede1;
+  color: #eaf1f9;
   font-size: 0.8rem;
   padding: 8px 10px;
   border-radius: 6px;

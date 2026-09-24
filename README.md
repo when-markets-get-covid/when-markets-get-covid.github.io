@@ -8,7 +8,7 @@ No build step. It's plain HTML/CSS/JS, served by GitHub Pages.
 
 ## Structure
 
-Look and palette match international-climate-news.github.io (Fraunces + Inter, cream/terracotta).
+Layout matches international-climate-news.github.io (Fraunces + Inter); palette is navy/blue.
 Content follows the original Google Site (Home · Tweets-based · Announcements · Authors · Extra/LDA).
 
 - `index.html` — Home: title, abstract, authors, links to the two studies

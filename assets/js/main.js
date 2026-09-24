@@ -5,7 +5,7 @@
    - LDA topic-model viewer (topics.html) */
 
 (function () {
-  var INK = "#211d1a", GRAY = "#766e62", GRID = "#ece5d8", ACCENT = "#c2542d", SLATE = "#3b6e8f";
+  var INK = "#13233a", GRAY = "#5b6778", GRID = "#e6ecf3", ACCENT = "#1f5fa8", SLATE = "#5aa7d8";
   var SVGNS = "http://www.w3.org/2000/svg";
 
   /* ---------- BibTeX copy ---------- */
@@ -22,14 +22,14 @@
   });
 
   /* ---------- Plotly charts ---------- */
-  var COLORWAY = ["#c2542d", "#3b6e8f", "#211d1a", "#8a9a5b", "#b88a2e", "#7a5c8e", "#5e8c8a",
-                  "#a8574f", "#6b7fa3", "#9c7b5b", "#4f7d5c", "#c98a6b", "#56647a", "#a39a3c"];
+  var COLORWAY = ["#1f5fa8", "#5aa7d8", "#13233a", "#2a9d8f", "#7b8fd6", "#0b7285", "#9cc3e6",
+                  "#4c6ef5", "#3d5a80", "#48cae4", "#5e60ce", "#023e8a", "#8e9aaf", "#90be6d"];
 
   function styleAxis(ax) {
     ax = ax || {};
     ax.gridcolor = GRID;
-    ax.zerolinecolor = "#d9cfbf";
-    ax.linecolor = "#d9cfbf";
+    ax.zerolinecolor = "#cdd6e2";
+    ax.linecolor = "#cdd6e2";
     ax.tickfont = { size: 11, color: GRAY };
     if (ax.title && ax.title.text) ax.title.font = { size: 12, color: GRAY };
     return ax;
@@ -50,7 +50,7 @@
         L.plot_bgcolor = "rgba(0,0,0,0)";
         L.colorway = COLORWAY;
         L.hovermode = L.hovermode || "closest";
-        L.hoverlabel = { bgcolor: "#fffefc", bordercolor: "#e8e0d3", font: { color: INK, size: 12 } };
+        L.hoverlabel = { bgcolor: "#ffffff", bordercolor: "#dde4ee", font: { color: INK, size: 12 } };
         L.legend = { orientation: "h", x: 0, y: -0.14, font: { size: 11, color: GRAY } };
         L.margin = { l: 60, r: 30, t: (L.annotations && L.annotations.length) ? 40 : 16, b: 40 };
         if (el.dataset.legend === "right") L.legend = { orientation: "v", x: 1.02, y: 1, font: { size: 11, color: GRAY } };
@@ -69,7 +69,7 @@
 
   /* ---------- Announcements explorer ---------- */
   var CAT_LABEL = { "cases": "Case reports", "live": "Live-streamed briefings", "president speech": "President / PM", "other": "Other" };
-  var CAT_COLOR = { "cases": ACCENT, "live": SLATE, "president speech": "#b88a2e", "other": "#cfc5b4" };
+  var CAT_COLOR = { "cases": ACCENT, "live": SLATE, "president speech": "#13233a", "other": "#c9d3df" };
 
   function el(name, attrs, parent) {
     var n = document.createElementNS(SVGNS, name);
