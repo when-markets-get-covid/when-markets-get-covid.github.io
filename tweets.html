@@ -53,7 +53,7 @@
         <h3>Average COVID-related tweets per major newspaper, by country</h3>
       </div>
       <div class="plot" data-src="assets/plots/tweets_by_country.json"></div>
-      <div class="figure-caption"><p>Total COVID-related tweets (bars, left axis) and retweets (diamonds, right axis), each divided by the number of major newspapers in the sample for that country. Oct 2019 &ndash; Feb 2022.</p></div>
+      <div class="figure-caption"><p>Total COVID-related tweets (bars, left axis) and retweets (diamonds, right axis), each divided by the number of major newspapers tracked in that country. Based on Table 3 of the paper; sample 01/01/2020&ndash;02/22/2022.</p></div>
     </div>
 
     <div class="takeaway">
@@ -128,15 +128,6 @@
     \end{aligned}$$</div>
     <p>Here \(\lambda\) is the market price of risk (MPR) of global contagion news. We estimate the model by GMM. All portfolios have a significant exposure to contagion news, and the portfolio with the highest share of cases tends to be the most exposed. That sign is what we expect: bad news about the global tone of tweets is an adverse shock to equity returns.</p>
 
-    <div class="chart-block">
-      <div class="chart-head">
-        <div class="eyebrow">Interactive</div>
-        <h3>Estimated expected excess return, H portfolio</h3>
-      </div>
-      <div class="plot tall" data-src="assets/plots/rp_H.json" data-legend="none"></div>
-      <div class="figure-caption"><p>Advanced economies in dark blue, emerging economies in light blue. Bonds on the left, equities on the right.</p></div>
-    </div>
-
     <div class="takeaway">
       <div class="eyebrow">Result</div>
       <p>Given our specifications and estimation uncertainty, <strong>0.3% is a reasonable lower bound on the daily market price of risk of contagion news</strong>. Two things make this number plausible:</p>
@@ -144,7 +135,7 @@
         <li>This is not the MPR of a financial factor, and the estimated betas are very small.</li>
         <li>Contagion risk comes in waves with a short half-life, so assets' exposure to it is small and fades quickly.</li>
       </ol>
-      <p>Sovereign bonds of advanced economies are not sensitive to contagion risk. Equities, however, saw a larger rise in their required risk premium in High-COVID countries. In emerging economies, both bonds and equities became much riskier. Bonds were still less exposed than equities, so emerging-market bonds are also relatively safe against contagion risk.</p>
+      <p>Equities are more exposed to contagion risk than bonds. An HML-COVID strategy on bonds earns a zero risk premium in advanced economies and a negative one (an insurance premium) in emerging economies. On equities, the same strategy earns a positive risk premium in both groups, smaller but better identified in advanced economies.</p>
     </div>
   </div>
 </section>
