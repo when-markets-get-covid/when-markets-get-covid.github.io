@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medical Announcements — When the Markets Get COVID</title>
+<meta name="description" content="15,839 hand-collected COVID-19 medical announcements across 20 countries, and how equity and sovereign bond markets react to them minute by minute.">
+<script>try{var t=localStorage.getItem("wmgc-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/img/favicon.svg" alt="">
+      <span>
+        <div class="brand-title">When the Markets Get COVID</div>
+        <div class="brand-sub">Contagion &middot; Viruses &middot; Information Diffusion</div>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="announcements.html" class="active">Announcements</a>
+      <a href="tweets.html">Twitter News</a>
+      <a href="data.html">Paper &amp; Data</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle theme">&#9790;</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero hero-page">
+  <div class="container">
+    <div class="label">Part I &middot; Medical announcements</div>
+    <h1>What happens to markets in the hour after a COVID bulletin?</h1>
+    <p class="lede">We hand-collected every COVID-19 medical announcement in 20 countries (case reports, live-streamed briefings, and speeches by presidents and prime ministers) with minute-level timestamps. Then we tracked equities and sovereign bonds in a &plusmn;60-minute window around each one.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-col">
+    <div>
+      <div class="label">The mechanism</div>
+      <h2 class="section-title">Announcements resolve uncertainty, and investors pay for that</h2>
+    </div>
+    <div>
+      <p>Take an investor with Epstein&ndash;Zin preferences who cares about <em>when</em> uncertainty is resolved (risk aversion &gamma; &gt; 1). This investor splits wealth between bonds and equities, and equity payouts carry risk &theta; with variance &sigma;&sup2;.</p>
+      <div class="eq">
+        demand: &nbsp;p(S) / p(B) = E<sub>0</sub>[<span class="v">&theta;</span>] &minus; (<span class="v">&gamma;</span> &minus; 1) &middot; <span class="v">&sigma;&sup2;</span> &middot; S
+        &nbsp;&nbsp;&rArr;&nbsp;&nbsp; &part;p(S) / &part;<span class="v">&sigma;&sup2;</span> &lt; 0 &nbsp;if <span class="v">&gamma;</span> &gt; 1
+      </div>
+      <p style="margin-top:16px;">An announcement is an unbiased signal about &theta; that lowers posterior variance. <strong>On average</strong>, then, it should push investors from bonds into equities. Equity prices should rise. Bond prices should stay put if bond supply is flat and dip if it slopes upward.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="dataset">
+  <div class="container">
+    <div class="label">The dataset</div>
+    <h2 class="section-title">15,839 announcements, time-stamped to the minute</h2>
+    <p class="section-intro">For each country we looked up official press statements on the Ministry of Health website. When a statement had no official timestamp, we used the Twitter account of the Ministry or another government body (for example, the Prime Minister's), and if that failed, major local newspapers. We repeated these steps several times a week throughout the pandemic. Monetary and fiscal policy announcements are excluded.</p>
+
+    <div class="explorer" id="explorer">
+      <div class="explorer-controls">
+        <label>
+          <span class="label" style="margin-right:10px;">Country</span>
+          <select id="country-select" aria-label="Choose a country">
+            <option value="ALL">All 20 countries</option>
+          </select>
+        </label>
+        <div class="legend" id="chart-legend"></div>
+      </div>
+      <div class="explorer-summary">
+        <div><div class="n" id="s-total">&ndash;</div><div class="l">announcements</div></div>
+        <div><div class="n" id="s-peak">&ndash;</div><div class="l" id="s-peakdate">in the busiest week</div></div>
+        <div><div class="n" id="s-first">&ndash;</div><div class="l">first recorded week</div></div>
+        <div><div class="n" id="s-cases">&ndash;</div><div class="l">are case reports</div></div>
+      </div>
+      <div id="chart"></div>
+      <p class="explorer-note">Weekly counts built from <a href="assets/data/covid19_announcements.csv">covid19_announcements.csv</a> (UTC timestamps). Hover over a bar for the breakdown.</p>
+    </div>
+
+    <div class="two-col" style="margin-top:48px; align-items:center;">
+      <div>
+        <div class="label">Pinning down the timing</div>
+        <h3 style="font-size:1.35rem; margin-top:10px;">Tweets reveal when news actually arrived</h3>
+        <p style="color:var(--muted);">Most announcements come out at a regular, pre-set time. Some don't: the first Coronavirus Task Force briefing in the U.S. started at 3:40 p.m. EST, earlier than the White House briefings that followed. It was announced on Twitter 2.5 hours in advance, so we count it as pre-scheduled. Our main results hold with and without irregular announcements.</p>
+      </div>
+      <figure class="figure">
+        <div class="plate"><img src="assets/img/figures/tweet_announcement_example.png" alt="Tweet announcing the first Coronavirus Task Force press briefing, with a summary of the topics discussed" loading="lazy"></div>
+        <figcaption><span class="tag">Fig. 1</span><strong>Announcement time from Twitter.</strong> One of the first COVID-related announcements in the U.S. and the topics covered in the briefing.</figcaption>
+      </figure>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data">
+        <thead>
+          <tr><th>Country</th><th>Announcements</th><th>Case reports</th><th>Live-streamed</th><th>President / PM</th><th>Regularly scheduled</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>Argentina <span class="mono" style="color:var(--muted);font-size:.78rem">AR</span></td><td class="bar"><span class="b" style="width:27px"></span>605</td><td>33%</td><td>64%</td><td>3%</td><td>90%</td></tr>
+        <tr><td>Australia <span class="mono" style="color:var(--muted);font-size:.78rem">AU</span></td><td class="bar"><span class="b" style="width:30px"></span>678</td><td>78%</td><td>4%</td><td>1%</td><td>34%</td></tr>
+        <tr><td>Brazil <span class="mono" style="color:var(--muted);font-size:.78rem">BR</span></td><td class="bar"><span class="b" style="width:43px"></span>975</td><td>64%</td><td>26%</td><td>2%</td><td>54%</td></tr>
+        <tr><td>Canada <span class="mono" style="color:var(--muted);font-size:.78rem">CA</span></td><td class="bar"><span class="b" style="width:35px"></span>791</td><td>58%</td><td>21%</td><td>18%</td><td>31%</td></tr>
+        <tr><td>Switzerland <span class="mono" style="color:var(--muted);font-size:.78rem">CH</span></td><td class="bar"><span class="b" style="width:28px"></span>627</td><td>78%</td><td>9%</td><td>13%</td><td>73%</td></tr>
+        <tr><td>Chile <span class="mono" style="color:var(--muted);font-size:.78rem">CL</span></td><td class="bar"><span class="b" style="width:40px"></span>896</td><td>59%</td><td>29%</td><td>3%</td><td>45%</td></tr>
+        <tr><td>China <span class="mono" style="color:var(--muted);font-size:.78rem">CN</span></td><td class="bar"><span class="b" style="width:32px"></span>721</td><td>82%</td><td>3%</td><td>1%</td><td>75%</td></tr>
+        <tr><td>Hong Kong <span class="mono" style="color:var(--muted);font-size:.78rem">CN-HK</span></td><td class="bar"><span class="b" style="width:61px"></span>1,376</td><td>55%</td><td>2%</td><td>1%</td><td>100%</td></tr>
+        <tr><td>Colombia <span class="mono" style="color:var(--muted);font-size:.78rem">CO</span></td><td class="bar"><span class="b" style="width:45px"></span>1,006</td><td>58%</td><td>34%</td><td>8%</td><td>79%</td></tr>
+        <tr><td>Germany <span class="mono" style="color:var(--muted);font-size:.78rem">DE</span></td><td class="bar"><span class="b" style="width:13px"></span>283</td><td>87%</td><td>1%</td><td>7%</td><td>61%</td></tr>
+        <tr><td>Spain <span class="mono" style="color:var(--muted);font-size:.78rem">ES</span></td><td class="bar"><span class="b" style="width:25px"></span>570</td><td>83%</td><td>1%</td><td>17%</td><td>63%</td></tr>
+        <tr><td>France <span class="mono" style="color:var(--muted);font-size:.78rem">FR</span></td><td class="bar"><span class="b" style="width:25px"></span>567</td><td>77%</td><td>16%</td><td>6%</td><td>84%</td></tr>
+        <tr><td>India <span class="mono" style="color:var(--muted);font-size:.78rem">IN</span></td><td class="bar"><span class="b" style="width:34px"></span>759</td><td>89%</td><td>1%</td><td>1%</td><td>63%</td></tr>
+        <tr><td>Italy <span class="mono" style="color:var(--muted);font-size:.78rem">IT</span></td><td class="bar"><span class="b" style="width:29px"></span>654</td><td>74%</td><td>17%</td><td>8%</td><td>81%</td></tr>
+        <tr><td>Japan <span class="mono" style="color:var(--muted);font-size:.78rem">JA</span></td><td class="bar"><span class="b" style="width:15px"></span>332</td><td>59%</td><td>5%</td><td>5%</td><td>32%</td></tr>
+        <tr><td>South Korea <span class="mono" style="color:var(--muted);font-size:.78rem">KR</span></td><td class="bar"><span class="b" style="width:28px"></span>642</td><td>80%</td><td>1%</td><td>4%</td><td>72%</td></tr>
+        <tr><td>Mexico <span class="mono" style="color:var(--muted);font-size:.78rem">MX</span></td><td class="bar"><span class="b" style="width:80px"></span>1,803</td><td>10%</td><td>45%</td><td>21%</td><td>51%</td></tr>
+        <tr><td>New Zealand <span class="mono" style="color:var(--muted);font-size:.78rem">NZ</span></td><td class="bar"><span class="b" style="width:20px"></span>457</td><td>61%</td><td>29%</td><td>7%</td><td>72%</td></tr>
+        <tr><td>United Kingdom <span class="mono" style="color:var(--muted);font-size:.78rem">UK</span></td><td class="bar"><span class="b" style="width:32px"></span>711</td><td>82%</td><td>11%</td><td>7%</td><td>68%</td></tr>
+        <tr><td>United States <span class="mono" style="color:var(--muted);font-size:.78rem">US</span></td><td class="bar"><span class="b" style="width:61px"></span>1,386</td><td>17%</td><td>54%</td><td>7%</td><td>33%</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>Total</td><td>15,839</td><td>64%</td><td>18%</td><td>7%</td><td>62%</td></tr>
+        </tfoot>
+      </table>
+    </div>
+    <p class="explorer-note">Table 1 of the paper. Sample: 01/01/2020&ndash;02/22/2022.</p>
+  </div>
+</section>
+
+<section class="section" id="results">
+  <div class="container">
+    <div class="label">Results</div>
+    <h2 class="section-title">Equities jump when medical news arrives</h2>
+    <p class="section-intro">Each dot is the average cumulative return, across countries and announcements, from buying 60 minutes before an announcement and holding for 120 minutes. It's measured <em>relative to the same clock time before the epidemic</em>, which removes the need for country and day fixed effects. The solid line and band are a quadratic fit with a break at the announcement (HAC standard errors).</p>
+
+    <div class="fig-stack">
+      <figure class="figure">
+        <div class="fig-pair">
+          <div><div class="panel-head">Advanced economies</div><div class="plate"><img src="assets/img/figures/world_cumlogr_diffADV.png" alt="Cumulative equity returns around announcements, advanced economies: a discrete upward jump at minute zero" loading="lazy"></div></div>
+          <div><div class="panel-head">Emerging economies</div><div class="plate"><img src="assets/img/figures/world_cumlogr_diffNOADV.png" alt="Cumulative equity returns around announcements, emerging economies: a jump at minute zero that keeps building over the next hour" loading="lazy"></div></div>
+        </div>
+        <figcaption><span class="tag">Fig. 2a</span><strong>Equity returns around announcements.</strong> Epidemic-minus-pre-epidemic cumulative log returns (&times;100), all countries. Sample: 10/01/2019&ndash;02/22/2022.</figcaption>
+      </figure>
+
+      <div class="callouts">
+        <div class="callout"><div class="num">&uarr; at t = 0</div><p>Equity values jump when the announcement comes out, in both advanced and emerging economies.</p></div>
+        <div class="callout"><div class="num">Persistent</div><p>The jump holds for the next hour in advanced economies and grows in emerging ones.</p></div>
+        <div class="callout"><div class="num">Not a peso problem</div><p>It holds for bad-news announcements only, after dropping the top and bottom 1% of news days, and in the sample through December 2020.</p></div>
+      </div>
+
+      <figure class="figure">
+        <div class="fig-pair">
+          <div><div class="panel-head">Advanced economies</div><div class="plate"><img src="assets/img/figures/BONDSworld_cumlogr_diffADV.png" alt="Cumulative 10-year sovereign bond returns around announcements, advanced economies" loading="lazy"></div></div>
+          <div><div class="panel-head">Emerging economies</div><div class="plate"><img src="assets/img/figures/BONDSworld_cumlogr_diffNOADV.png" alt="Cumulative 10-year sovereign bond returns around announcements, emerging economies" loading="lazy"></div></div>
+        </div>
+        <figcaption><span class="tag">Fig. 4</span><strong>Sovereign bonds around announcements.</strong> Same design, using 10-year sovereign bonds. Bonds dip slightly in advanced economies and don't move in emerging ones.</figcaption>
+      </figure>
+    </div>
+
+    <div class="takeaway"><strong>Takeaway.</strong> Announcements help equities during the epidemic. Bonds hedge announcement news well in advanced economies and less so in emerging ones. That's the pattern the model predicts when bond supply is flatter than equity supply. Trading volume also rises after announcements in both groups.</div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container next-link">
+    <a href="index.html"><small>&larr; Back</small><span>Overview</span></a>
+    <a class="right" href="tweets.html"><small>Next &rarr;</small><span>Twitter-based contagion news</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>&copy; 2024&ndash;2026 Arteaga&#8209;Garavito, Croce, Farroni &amp; Wolfskeil</div>
+    <div>
+      <a href="https://doi.org/10.1016/j.jfineco.2024.103850" target="_blank" rel="noopener">JFE</a>
+      <a href="https://www.ssrn.com/abstract=3560347" target="_blank" rel="noopener">SSRN</a>
+      <a href="data.html#cite">BibTeX</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paper &amp; Data — When the Markets Get COVID</title>
+<meta name="description" content="Published paper (Journal of Financial Economics, 2024), Internet Appendix, the COVID-19 announcements dataset, replication package and BibTeX citation.">
+<script>try{var t=localStorage.getItem("wmgc-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/img/favicon.svg" alt="">
+      <span>
+        <div class="brand-title">When the Markets Get COVID</div>
+        <div class="brand-sub">Contagion &middot; Viruses &middot; Information Diffusion</div>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="announcements.html">Announcements</a>
+      <a href="tweets.html">Twitter News</a>
+      <a href="data.html" class="active">Paper &amp; Data</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle theme">&#9790;</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero hero-page">
+  <div class="container">
+    <div class="label">Resources</div>
+    <h1>Paper, data &amp; citation</h1>
+    <p class="lede">The published article, the Internet Appendix, our COVID-19 medical announcements dataset, and the full replication package.</p>
+  </div>
+</section>
+
+<section class="section" id="paper">
+  <div class="container">
+    <div class="label">Read</div>
+    <h2 class="section-title">The paper</h2>
+    <div class="dl-grid">
+      <div class="dl">
+        <div class="kind">Published version</div>
+        <h3>Journal of Financial Economics</h3>
+        <p>Volume 157, article 103850, July 2024. Official version of record on ScienceDirect.</p>
+        <div class="btn-row"><a class="btn solid" href="https://doi.org/10.1016/j.jfineco.2024.103850" target="_blank" rel="noopener">Open in JFE</a></div>
+      </div>
+      <div class="dl">
+        <div class="kind">Working paper</div>
+        <h3>SSRN</h3>
+        <p>Freely accessible working-paper version. First draft: March 23, 2020.</p>
+        <div class="btn-row"><a class="btn outline" href="https://www.ssrn.com/abstract=3560347" target="_blank" rel="noopener">View on SSRN</a></div>
+      </div>
+      <div class="dl">
+        <div class="kind">PDF &middot; 2.8 MB</div>
+        <h3>Internet Appendix</h3>
+        <p>Data construction, the newspaper list, tone examples, LDA topics, and additional robustness tables and figures.</p>
+        <div class="btn-row"><a class="btn outline" href="assets/docs/Internet_Appendix.pdf" target="_blank" rel="noopener">Download PDF</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="data">
+  <div class="container">
+    <div class="label">Data</div>
+    <h2 class="section-title">COVID-19 medical announcements dataset</h2>
+    <p class="section-intro">The hand-collected dataset behind Part I of the paper, released publicly. It has 15,839 announcements from 20 countries, 20 Jan 2020 &ndash; 28 Feb 2022, time-stamped to the minute in UTC.</p>
+
+    <div class="dl-grid">
+      <div class="dl">
+        <div class="kind">CSV &middot; 590 KB</div>
+        <h3>covid19_announcements.csv</h3>
+        <p>One row per announcement. Use it freely, and please cite the paper.</p>
+        <div class="btn-row"><a class="btn solid" href="assets/data/covid19_announcements.csv" download>Download CSV</a></div>
+      </div>
+      <div class="dl">
+        <div class="kind">ZIP &middot; replication package</div>
+        <h3>Code &amp; data (JFE)</h3>
+        <p>Python, R, and MATLAB code that reproduces every figure and table (Figs. 2&ndash;9, Tables 1&ndash;9), with README files in each folder.</p>
+        <div class="btn-row"><a class="btn outline" href="https://www.dropbox.com/scl/fi/1ijkpfpewtv6sd4wf2x7v/Data_JFE.zip?rlkey=u1lxh07bniha4bqmrmkcmp7tc&amp;dl=0" target="_blank" rel="noopener">Get the package</a></div>
+      </div>
+      <div class="dl">
+        <div class="kind">Explore</div>
+        <h3>Interactive explorer</h3>
+        <p>Browse weekly announcement counts by country and type before you download.</p>
+        <div class="btn-row"><a class="btn outline" href="announcements.html#dataset">Open explorer</a></div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data text">
+        <thead><tr><th>Column</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>time</code></td><td>Minute-level timestamp of the announcement, in UTC (e.g. <code>2020-03-14T19:35:00Z</code>).</td></tr>
+          <tr><td><code>country</code></td><td>Country code: AR, AU, BR, CA, CH, CL, CN, CN-HK, CO, DE, ES, FR, IN, IT, JA, KR, MX, NZ, UK, US.</td></tr>
+          <tr><td><code>category</code></td><td><code>cases</code> (publication of case counts), <code>live</code> (live-streamed press conference), <code>president speech</code> (led by the President or Prime Minister), or <code>other</code>.</td></tr>
+          <tr><td><code>peak</code></td><td>1 if the announcement came at the country's usual briefing time (regularly scheduled), 0 otherwise.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="explorer-note">In the replication package, only the announcements file is the actual data. Newspaper tweet text and proprietary financial series (e.g. Bloomberg, Thomson Reuters, EPFR) are replaced by pseudo data because of provider sharing policies.</p>
+  </div>
+</section>
+
+<section class="section" id="cite">
+  <div class="container">
+    <div class="label">Citation</div>
+    <h2 class="section-title">BibTeX</h2>
+    <p class="section-intro">If you use the paper or the announcements data, please cite:</p>
+    <div class="bibtex">
+<button class="copy-btn" data-copy-target="#bibtex-code">Copy</button>
+<code id="bibtex-code">@article{ArteagaGaravitoCroceFarroniWolfskeil2024,
+  title   = {When the Markets Get {CO.V.I.D}: {CO}ntagion, {V}iruses, and {I}nformation {D}iffusion},
+  author  = {Arteaga-Garavito, Maria Jose and Croce, Mariano M. and Farroni, Paolo and Wolfskeil, Isabella},
+  journal = {Journal of Financial Economics},
+  volume  = {157},
+  pages   = {103850},
+  year    = {2024},
+  doi     = {10.1016/j.jfineco.2024.103850}
+}</code>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>&copy; 2024&ndash;2026 Arteaga&#8209;Garavito, Croce, Farroni &amp; Wolfskeil</div>
+    <div>
+      <a href="https://doi.org/10.1016/j.jfineco.2024.103850" target="_blank" rel="noopener">JFE</a>
+      <a href="https://www.ssrn.com/abstract=3560347" target="_blank" rel="noopener">SSRN</a>
+      <a href="data.html#cite">BibTeX</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
