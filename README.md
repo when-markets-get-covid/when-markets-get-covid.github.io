@@ -22,7 +22,7 @@ Content follows the original Google Site (Home · Tweets-based · Announcements 
 - `assets/lda/*.html` — Codes/Majo/output/topics5 (5-topic LDAvis), wrapped as standalone pages
 - `assets/data/` — public announcements CSV and the weekly JSON built from it
 - `assets/img/figures/` — figures from the JFE version (Writing_JFE/Figures)
-- `assets/img/authors/` — headshots (Paolo still shows initials: add `paolo.jpg` and swap it in index.html)
+- `assets/img/authors/` — headshots (Paolo's is upscaled from a 120 px original; replace `paolo.jpg` if a larger photo turns up)
 - `assets/docs/Internet_Appendix.pdf` — published supplementary material (ScienceDirect mmc1)
 
 Math is rendered with KaTeX, charts with Plotly.js (both from cdn.jsdelivr.net).
